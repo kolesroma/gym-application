@@ -1,0 +1,26 @@
+.registration-container {
+  display: flex;
+  margin-bottom: 15px;
+  /*justify-content: space-between;*/
+}
+
+.vertical-align-container {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+}
+
+.registration-text {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.registration-image {
+  flex: 1;
+}
+
+.join-us-img {
+  cursor: pointer;
+  max-width: 750px;
+}

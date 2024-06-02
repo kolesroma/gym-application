@@ -1,0 +1,59 @@
+<div class="registration-container ">
+  <img src="assets/img/registration.png" id="registration-img" alt="register now">
+
+  <div class="registration-content-container">
+
+    <div class="form-container">
+      <h2 class="registration-title">Student Registration</h2>
+
+      <form (ngSubmit)="onSubmitRegisterStudent()">
+        <label for="firstName">First Name *</label>
+        <input type="text" id="firstName" name="firstName" [(ngModel)]="formData.firstName" required>
+        <span *ngIf="isFirstNameInvalid" class="error-message">
+          First name is required.
+        </span>
+
+        <label for="lastName">Last Name *</label>
+        <input type="text" id="lastName" name="lastName" [(ngModel)]="formData.lastName" required>
+        <span *ngIf="isLastNameInvalid" class="error-message">
+          Last name is required.
+        </span>
+
+        <label for="email">Email *</label>
+        <input type="text" id="email" name="email" [(ngModel)]="formData.email" required>
+        <span *ngIf="isEmailInvalid" class="error-message">
+          Email is required.
+        </span>
+
+        <label for="dateOfBirth">Date of Birth</label>
+        <input type="date" id="dateOfBirth" name="dateOfBirth" [(ngModel)]="formData.dateOfBirth">
+
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" [(ngModel)]="formData.address">
+
+        <button type="submit">Submit</button>
+
+        <span *ngIf="errorText" class="error-message">
+          {{errorText}}
+        </span>
+
+      </form>
+    </div>
+
+    <div *ngIf="isLoading" class="loading-overlay">
+      <div class="loading-message">
+        <p>Loading...</p>
+        <div class="spinner"></div>
+      </div>
+    </div>
+
+    <div *ngIf="isCredentialVisible && !isLoading && !errorText" class="loading-overlay">
+      <div class="loading-message">
+        <p>{{credentials.username}}</p>
+        <p>{{credentials.password}}</p>
+        <button (click)="closeCredentials()">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="box">
+
+    <div *ngIf="imageUrl" class="col-md-4 box-image">
+      <img [src]="imageUrl" alt="box image" class="rounded">
+    </div>
+
+    <div class="col-md-4 box-content">
+      <h2 class="h1">{{ title }}</h2>
+      <p class="lead">{{ text }}</p>
+      <div class="box-row">
+        <p *ngIf="date" class="box-date">{{ date }}</p>
+        <p *ngIf="readTime" class="box-read-time">{{ readTime }} read</p>
+      </div>
+    </div>
+
+</div>

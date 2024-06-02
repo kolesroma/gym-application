@@ -1,0 +1,19 @@
+<div class="modal-background">
+  <div class="modal-window">
+    <h1 mat-dialog-title>Add trainer</h1>
+    <div mat-dialog-content>
+      <table>
+        <tr *ngFor="let trainer of uniqueTrainersKeys">
+          <td>
+            <input type="checkbox" [checked]="uniqueTrainers.get(trainer)" (change)="toggleTrainerSelection(trainer)"/>
+          </td>
+          <td>{{ trainer }}</td>
+        </tr>
+      </table>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button mat-dialog-close (click)="onConfirmAddSelectedTrainers($event)" class="green-button">Add</button>
+      <button mat-button mat-dialog-close (click)="onCancel($event)" cdkFocusInitial>Cancel</button>
+    </div>
+  </div>
+</div>

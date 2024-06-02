@@ -1,0 +1,17 @@
+.my-profile-box {
+  width: 80%;
+  background-color: rgba(142, 68, 173, 0.15);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.my-profile-box-element {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.row-items {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}

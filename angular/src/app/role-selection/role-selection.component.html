@@ -1,0 +1,18 @@
+<div class="pick-role">
+  <h2>Select Your Role</h2>
+  <label>
+    <input type="radio" name="role" [(ngModel)]="selectedRole" value="student"> Student
+  </label>
+  <label>
+    <input type="radio" name="role" [(ngModel)]="selectedRole" value="trainer"> Trainer
+  </label>
+</div>
+
+<div *ngIf="selectedRole === 'student'">
+  <app-registration-student></app-registration-student>
+</div>
+
+<div *ngIf="selectedRole === 'trainer'">
+  <app-registration-trainer></app-registration-trainer>
+</div>
+

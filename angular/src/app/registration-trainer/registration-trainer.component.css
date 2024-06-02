@@ -1,0 +1,5 @@
+@import "src/app/registration-student/registration-student.component.css";
+
+.specialization  {
+  width: 150px !important;
+}

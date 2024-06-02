@@ -1,0 +1,24 @@
+<header>
+  <span id="dots" (click)="(isHorizontalNavOpened = !isHorizontalNavOpened)">...</span>
+  <div class="logo" (click)="navigateToHomePage()">
+    <img id="logo" src="assets/img/logo.png" alt="gym application logo">
+  </div>
+  <app-navigation *ngIf="isAuthenticated"></app-navigation>
+  <div class="buttons">
+    <img *ngIf="isAuthenticated" (click)="toggleMiniProfile()"
+         [src]="profilePhotoUrl" class="profile-photo">
+    <button *ngIf="!isAuthenticated" (click)="signIn()">Sign In</button>
+    <button *ngIf="!isAuthenticated" (click)="joinUs()">Join Us</button>
+  </div>
+</header>
+
+<nav *ngIf="isHorizontalNavOpened" id="column-nav">
+  <ul>
+    <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+    <li><a routerLink="/training" routerLinkActive="active">Training</a></li>
+    <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+    <li><a routerLink="/my-account" routerLinkActive="active">My account</a></li>
+  </ul>
+</nav>
+
+<app-mini-profile *ngIf="isMiniProfileOpened"></app-mini-profile>

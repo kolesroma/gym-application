@@ -1,0 +1,100 @@
+<section class="row-items">
+  <div class="d-flex justify-content-center">
+    <div class="my-profile-box d-flex flex-column">
+
+      <h1 class="h1 my-profile-box-element">My profile</h1>
+
+      <div class="my-profile-box-element profile-upload-photo-box d-flex flex-row">
+        <div class="box-image">
+          <img [src]=profilePhotoUrl alt="box image" class="profile-photo rounded">
+        </div>
+        <div class="d-flex flex-column">
+          <h6 class="h6">Status</h6>
+          <h6 class="h6">active ✔</h6>
+        </div>
+        <app-button *ngIf="isEditing"
+                    (click)="openUpdatePhotoBox()"
+                    text="Upload photo"
+        ></app-button>
+      </div>
+
+      <div>
+        <app-button *ngIf="isEditing"
+                    class="delete-account-button"
+                    text="Delete account"
+                    type="important"
+                    (click)="openDeleteAccountBox()"
+        ></app-button>
+      </div>
+
+      <div *ngIf="!isEditing" class="my-profile-box-element box-info">
+        <section *ngIf="user.firstName != null" class="box-info-element">
+          <h5 class="h5">First name</h5>
+          <h6 class="h6">{{user.firstName}}</h6>
+        </section>
+        <section *ngIf="user.lastName != null" class="box-info-element">
+          <h5 class="h5">Last name</h5>
+          <h6 class="h6">{{user.lastName}}</h6>
+        </section>
+        <section *ngIf="user.username != null" class="box-info-element">
+          <h5 class="h5">Username</h5>
+          <h6 class="h6">{{user.username}}</h6>
+        </section>
+        <section *ngIf="user.dateOfBirth != null" class="box-info-element">
+          <h5 class="h5">Date of birth</h5>
+          <h6 class="h6">{{user.dateOfBirth}}</h6>
+        </section>
+        <section *ngIf="user.address != null" class="box-info-element">
+          <h5 class="h5">Address</h5>
+          <h6 class="h6">{{user.address}}</h6>
+        </section>
+        <section *ngIf="user.specialization != null" class="box-info-element">
+          <h5 class="h5">Specialization</h5>
+          <h6 class="h6">{{user.specialization}}</h6>
+        </section>
+      </div>
+
+      <div *ngIf="isEditing" class="my-profile-box-element box-info">
+        <section *ngIf="user.firstName != null" class="box-info-element">
+          <h5 class="h5">First name</h5>
+          <input type="text" [(ngModel)]="user.firstName">
+        </section>
+        <section *ngIf="user.lastName != null" class="box-info-element">
+          <h5 class="h5">Last name</h5>
+          <input type="text" [(ngModel)]="user.lastName">
+        </section>
+        <section *ngIf="user.dateOfBirth != null" class="box-info-element">
+          <h5 class="h5">Date of birth</h5>
+          <input type="text" [(ngModel)]="user.dateOfBirth">
+        </section>
+        <section *ngIf="user.address != null" class="box-info-element">
+          <h5 class="h5">Address</h5>
+          <input type="text" [(ngModel)]="user.address">
+        </section>
+        <section *ngIf="user.specialization != null" class="box-info-element">
+          <h5 class="h5">Specialization</h5>
+          <input type="text" [(ngModel)]="user.specialization">
+        </section>
+      </div>
+
+      <app-button *ngIf="!isEditing"
+                  class="my-profile-box-element"
+                  text="Edit"
+                  type="secondary"
+                  (click)="toggleEditingMode()"
+      ></app-button>
+
+      <app-button *ngIf="isEditing"
+                  class="my-profile-box-element"
+                  text="Update information"
+                  type="secondary"
+                  (click)="updateProfile()"
+      ></app-button>
+
+    </div>
+  </div>
+
+  <div *ngIf="role === 'ROLE_TRAINEE'">
+    <app-my-trainers></app-my-trainers>
+  </div>
+</section>

@@ -1,0 +1,61 @@
+<div class="registration-container ">
+
+  <img src="assets/img/registration.png" id="registration-img" alt="register now">
+
+  <div class="registration-content-container">
+    <div class="form-container">
+      <h2>Trainer Registration</h2>
+
+      <form (ngSubmit)="onSubmitRegisterTrainer()">
+        <label for="firstName">First Name *</label>
+        <input type="text" id="firstName" name="firstName" [(ngModel)]="formData.firstName" required>
+          <span *ngIf="isFirstNameInvalid" class="error-message">
+          First name is required.
+        </span>
+
+        <label for="lastName">Last Name *</label>
+        <input type="text" id="lastName" name="lastName" [(ngModel)]="formData.lastName" required>
+          <span *ngIf="isLastNameInvalid" class="error-message">
+          Last name is required.
+        </span>
+
+        <label for="email">Email *</label>
+        <input type="text" id="email" name="email" [(ngModel)]="formData.email" required>
+
+        <label for="specialization">Specialization *</label>
+        <select class="form-select form-select-lg mb-3" id="specialization" name="specialization" [(ngModel)]="formData.specialization" required>
+          <option value="back">Back</option>
+          <option value="arms">Arms</option>
+          <option value="legs">Legs</option>
+          <option value="shoulders">Shoulders</option>
+          <option value="abs">Abs</option>
+        </select>
+        <span *ngIf="isSpecializationValid" class="error-message">
+          Specialization is required.
+        </span>
+
+        <button type="submit">Submit</button>
+
+        <span *ngIf="errorText" class="error-message">
+          {{errorText}}
+        </span>
+      </form>
+
+      <div *ngIf="isLoading" class="loading-overlay">
+        <div class="loading-message">
+          <p>Loading...</p>
+          <div class="spinner"></div>
+        </div>
+      </div>
+
+      <div *ngIf="isCredentialVisible && !isLoading && !errorText" class="loading-overlay">
+        <div class="loading-message">
+          <p>{{credentials.username}}</p>
+          <p>{{credentials.password}}</p>
+          <button (click)="closeCredentials()">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

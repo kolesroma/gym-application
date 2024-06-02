@@ -1,0 +1,14 @@
+.common-button-container {
+  width: 120px;
+  margin-bottom: 28px;
+}
+
+.provided-side-margin {
+  margin-left: 180px;
+  margin-right: 180px;
+}
+
+.grid-3-cols {
+  display: flex;
+  justify-content: space-between;
+}

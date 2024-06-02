@@ -1,0 +1,11 @@
+<div class="trainer-list">
+  <h1 class="text-center">My Trainers</h1>
+  <app-table [rowData]="rowData"
+             [columnDefs]="columnData"
+  ></app-table>
+  <div class="common-button-container">
+    <button class="important"
+            (click)="openAddTrainerBox()">Add Trainer
+    </button>
+  </div>
+</div>

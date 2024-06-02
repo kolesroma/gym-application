@@ -1,0 +1,30 @@
+div.pick-role {
+  width: 300px;
+  margin: 0 60px 15px;
+  padding: 20px;
+  background-color: #f5eef8;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  color: #555;
+  font-weight: bold;
+}
+
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+
+.pick-role {
+  background-color: #f5eef8;
+  border: 2px solid #8e44ad;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 20px;
+  color: #555;
+  font-weight: bold;
+}

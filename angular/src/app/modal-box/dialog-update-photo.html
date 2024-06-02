@@ -1,0 +1,15 @@
+<div class="modal-background">
+  <div class="modal-window">
+    <h1 mat-dialog-title>Update photo</h1>
+    <div mat-dialog-content>
+      Would you like to update photo?
+    </div>
+    <div>
+      <input type="file" (change)="onFileSelected($event)">
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onConfirmUpdate($event)" class="green-button">Update photo</button>
+      <button mat-button mat-dialog-close (click)="onCancel($event)" cdkFocusInitial>Cancel</button>
+    </div>
+  </div>
+</div>

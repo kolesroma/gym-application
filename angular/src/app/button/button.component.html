@@ -1,0 +1,17 @@
+<button
+  [ngClass]="{
+    'standard': state === 'standard',
+    'hover': state === 'hover',
+    'pressed': state === 'pressed',
+    'disabled': state === 'disabled',
+    'prime': type === 'prime',
+    'secondary': type === 'secondary',
+    'important': type === 'important'
+  }"
+  [disabled]="state === 'disabled'"
+>
+  <ng-container *ngIf="icon">
+    <i class="material-icons">{{ icon }}</i>
+  </ng-container>
+  {{ text }}
+</button>

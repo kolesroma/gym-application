@@ -1,0 +1,45 @@
+<div *ngIf="role === 'ROLE_TRAINEE'">
+  <h1 class="text-center">Training</h1>
+
+  <div class="common-button-container provided-side-margin">
+    <app-button text="Add training"
+                type="secondary"
+                (click)="addTrainingStudent()"
+    ></app-button>
+  </div>
+
+  <section class="trainings provided-side-margin">
+    <h2>Search Trainings</h2>
+    <app-form-filed-trainings-student></app-form-filed-trainings-student>
+  </section>
+
+  <section class="provided-side-margin">
+    <h2>My passed trainings</h2>
+    <app-table [rowData]="rowData"
+               [columnDefs]="columnDataStudent"
+    ></app-table>
+  </section>
+</div>
+
+<div *ngIf="role === 'ROLE_TRAINER'">
+  <h1 class="text-center">Training</h1>
+
+  <div class="common-button-container provided-side-margin">
+    <app-button text="Add training"
+                type="secondary"
+                (click)="addTrainingTrainer()"
+    ></app-button>
+  </div>
+
+  <section class="trainings provided-side-margin">
+    <h2>Search Trainings</h2>
+    <app-form-filed-trainings-trainer></app-form-filed-trainings-trainer>
+  </section>
+
+  <section class="provided-side-margin">
+    <h2>My passed trainings</h2>
+    <app-table [rowData]="rowData"
+               [columnDefs]="columnDataTrainer"
+    ></app-table>
+  </section>
+</div>

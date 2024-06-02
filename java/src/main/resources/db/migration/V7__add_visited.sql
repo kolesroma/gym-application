@@ -1,0 +1,1 @@
+alter table trainings add column visited tinyint;

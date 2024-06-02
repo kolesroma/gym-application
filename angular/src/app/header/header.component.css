@@ -1,0 +1,125 @@
+header {
+  background-color: #8e44ad;
+  color: #fff;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  cursor: pointer;
+  font-size: 24px;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+}
+
+li {
+  margin: 0 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.buttons button {
+  background-color: #000000;
+  color: #fff;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+#logo {
+  cursor: pointer;
+  max-height: 48px;
+  padding-left: 30px;
+}
+
+header {
+  font-size: 18px; /* Adjust the font size as needed */
+  /* Other styles for the header container */
+}
+
+/* Style the navigation links */
+nav ul li a {
+  font-size: 18px; /* Adjust the font size as needed */
+  /* Other styles for the navigation links */
+}
+
+/* Style the buttons */
+.buttons button {
+  font-size: 18px; /* Adjust the font size as needed */
+  /* Other styles for the buttons */
+}
+
+
+nav {
+  flex-grow: 1;
+}
+
+#dots {
+  display: none;
+}
+
+/* Media query for screens with a maximum width of 600px */
+@media (max-width: 600px) {
+
+  #dots {
+    padding-left: 20px;
+    display: block;
+    font-size: 25px;
+  }
+
+  .menu-icon {
+    display: block; /* Show the "three dots" icon */
+    cursor: pointer;
+  }
+
+  nav#nav ul {
+    display: none; /* Hide the navigation links by default */
+    flex-direction: column; /* Stack the navigation links vertically */
+  }
+
+  .buttons {
+    display: none;
+  }
+}
+
+#column-nav {
+  background-color: #333; /* Background color for the vertical navigation */
+  color: #fff; /* Text color for the navigation items */
+}
+
+#column-nav ul {
+  display: block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#column-nav li {
+  padding: 10px;
+  border-bottom: 1px solid #555; /* Add a separator line between items */
+}
+
+#column-nav li:last-child {
+  border-bottom: none; /* Remove the separator line from the last item */
+}
+
+#column-nav a {
+  text-decoration: none;
+  color: #fff; /* Text color for the navigation links */
+  display: block;
+}
+
+#column-nav a:hover {
+  background-color: #555; /* Background color on hover */
+}
+

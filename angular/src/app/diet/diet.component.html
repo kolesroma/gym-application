@@ -1,0 +1,34 @@
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label>Number of Meals:</label>
+    <input type="number" name="numberOfMeals" [(ngModel)]="createDietDto.numberOfMeals">
+  </div>
+  <div>
+    <label>Kcal:</label>
+    <input type="number" name="kcal" [(ngModel)]="createDietDto.kcal">
+  </div>
+  <div>
+    <label>Proteins Coefficient:</label>
+    <input type="number" step="0.01" name="proteinsCoefficient" [(ngModel)]="createDietDto.proteinsCoefficient">
+  </div>
+  <div>
+    <label>Fats Coefficient:</label>
+    <input type="number" step="0.01" name="fatsCoefficient" [(ngModel)]="createDietDto.fatsCoefficient">
+  </div>
+  <div>
+    <label>Carbohydrates Coefficient:</label>
+    <input type="number" step="0.01" name="carbohydratesCoefficient" [(ngModel)]="createDietDto.carbohydratesCoefficient">
+  </div>
+  <button type="submit" [disabled]="invalidCreateDto()">Generate ration</button>
+</form>
+
+<section>
+  <h2>My ration</h2>
+  <ag-grid-angular
+    style="width: 101%; max-width: 1002px; height: 300px;"
+    class="ag-theme-alpine"
+    [rowData]="rowData"
+    [columnDefs]="columnDataStudent">
+  </ag-grid-angular>
+  <button [disabled]="rowDataAll.length === 0" (click)="downloadRation()">Download Ration</button>
+</section>
