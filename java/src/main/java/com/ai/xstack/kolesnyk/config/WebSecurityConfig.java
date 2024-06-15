@@ -34,7 +34,7 @@ public class WebSecurityConfig {
                         .ignoringRequestMatchers("/registration/**")
                         .ignoringRequestMatchers("/auth/**")
                         .ignoringRequestMatchers("/users/**")
-                        .ignoringRequestMatchers("/trainings")
+                        .ignoringRequestMatchers("/trainings/**")
                         .ignoringRequestMatchers("/diet")
                         .ignoringRequestMatchers("/notification/**")
                         .ignoringRequestMatchers("/trainees/trainers"))

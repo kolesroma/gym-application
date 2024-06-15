@@ -10,4 +10,6 @@ public interface TrainingService {
     List<TrainingDto> getTrainingListForTrainee(String traineeUsername);
 
     TrainingDto create(TrainingDto trainingDto);
+
+    void toggleVisitedStatus(Long trainingId);
 }

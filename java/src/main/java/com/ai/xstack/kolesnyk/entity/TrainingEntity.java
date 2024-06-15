@@ -40,4 +40,7 @@ public class TrainingEntity {
     @ManyToOne(cascade={CascadeType.PERSIST})
     @JoinColumn(name = "training_type_id")
     private TrainingTypeEntity trainingType;
+
+    @Column(name = "visited", columnDefinition = "TINYINT(1)")
+    private Boolean visited;
 }

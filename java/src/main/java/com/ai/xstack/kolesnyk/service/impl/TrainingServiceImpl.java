@@ -52,10 +52,18 @@ public class TrainingServiceImpl implements TrainingService {
         TrainingEntity trainingEntity = trainingMapper.toEntity(trainingDto);
         trainingEntity.setTrainer(trainer);
         trainingEntity.setTrainee(trainee);
+        trainingEntity.setVisited(false);
         trainingRepository.save(trainingEntity);
         TrainingDto returnedDto = trainingMapper.toDto(trainingEntity);
         sendCreatedTrainingEmail(trainingDto, trainee);
         return returnedDto;
+    }
+
+    @Override
+    public void toggleVisitedStatus(Long trainingId) {
+        TrainingEntity training = trainingRepository.findById(trainingId).orElseThrow();
+        training.setVisited(!training.getVisited());
+        trainingRepository.save(training);
     }
 
     private void sendCreatedTrainingEmail(TrainingDto trainingDto, TraineeEntity trainee) {

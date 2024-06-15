@@ -13,6 +13,8 @@ public interface TrainingMapper {
     @Mapping(source = "trainingName", target = "trainingName")
     @Mapping(source = "trainingDuration", target = "trainingDuration")
     @Mapping(source = "trainingType.trainingTypeName", target = "trainingType")
+    @Mapping(source = "visited", target = "visited")
+    @Mapping(source = "id", target = "id")
     TrainingDto toDto(TrainingEntity trainingEntity);
 
     @Mapping(source = "traineeName", target = "trainee.user.username")
@@ -21,5 +23,7 @@ public interface TrainingMapper {
     @Mapping(source = "trainingDuration", target = "trainingDuration")
     @Mapping(source = "trainingType", target = "trainingType.trainingTypeName")
     @Mapping(source = "trainingDate", target = "trainingDate")
+    @Mapping(source = "visited", target = "visited")
+    @Mapping(source = "id", target = "id")
     TrainingEntity toEntity(TrainingDto trainingDto);
 }

@@ -6,6 +6,8 @@ import java.time.LocalDate;
 
 @Data
 public class TrainingDto {
+    private Long id;
+
     private String traineeName;
 
     private String trainerName;
@@ -17,4 +19,6 @@ public class TrainingDto {
     private Integer trainingDuration;
 
     private String trainingType;
+
+    private Boolean visited;
 }

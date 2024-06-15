@@ -3,7 +3,10 @@ package com.ai.xstack.kolesnyk.service.impl;
 import com.ai.xstack.kolesnyk.dto.DishDto;
 import com.ai.xstack.kolesnyk.dto.CreateDietDto;
 import com.ai.xstack.kolesnyk.dto.MealDto;
+import com.ai.xstack.kolesnyk.entity.DishEntity;
+import com.ai.xstack.kolesnyk.repository.DishRepository;
 import com.ai.xstack.kolesnyk.service.DietService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,6 +16,7 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class DietServiceImpl implements DietService {
 
     private static final double KCAL_PER_GRAM_FOR_PROTEINS = 4d;
@@ -21,16 +25,12 @@ public class DietServiceImpl implements DietService {
 
     private static final List<DishDto> MENU = new ArrayList<>();
 
-    static {
-        MENU.add(new DishDto(10, "porridge", 1.3, .34, 7.2));
-        MENU.add(new DishDto(10, "vivsianka", 3, 3, 4));
-        MENU.add(new DishDto(10, "sugar", 3, 3, 13));
-        MENU.add(new DishDto(10, "chicken breast", 2.7, 1.4, 0));
-        MENU.add(new DishDto(10, "salo", .14, 9.67, 0));
-    }
+    private final DishRepository dishRepository;
 
     @Override
     public List<MealDto> generateDayRation(CreateDietDto createDietDto) {
+        selectRandomDishesForMenu(MENU);
+
         int kcal = createDietDto.getKcal();
         int numberOfMeals = createDietDto.getNumberOfMeals();
         double proteinsCoefficient = createDietDto.getProteinsCoefficient();
@@ -47,10 +47,21 @@ public class DietServiceImpl implements DietService {
         return meals;
     }
 
+    private void selectRandomDishesForMenu(List<DishDto> menu) {
+        menu.clear();
+        List<DishEntity> dishes = dishRepository.findAll();
+        for (int i = 0; i < 4; i++) {
+            int randomNumber = new Random().nextInt(dishes.size());
+            DishEntity randomDish = dishes.get(randomNumber);
+            menu.add(new DishDto(randomDish.getMassInGrams(), randomDish. getDesc(), randomDish.getProteins(), randomDish.getFats(), randomDish.getCarbohydrates()));
+        }
+    }
+
     /**
      * using genetic algorithm.
      * create bestCombination.
      * set meal.setDishes(bestCombination) -> List<DishDto>
+     *
      * @param mealDto
      * @param proteinsCoefficient
      * @param fatsCoefficient
