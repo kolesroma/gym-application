@@ -21,6 +21,17 @@
       <div>
         <app-button *ngIf="isEditing"
                     class="delete-account-button"
+                    text="Change password"
+                    type="important"
+                    (click)="openChangePassword()"
+        ></app-button>
+      </div>
+
+      <div><h4> </h4></div>
+
+      <div>
+        <app-button *ngIf="isEditing"
+                    class="delete-account-button"
                     text="Delete account"
                     type="important"
                     (click)="openDeleteAccountBox()"
@@ -96,5 +107,8 @@
 
   <div *ngIf="role === 'ROLE_TRAINEE'">
     <app-my-trainers></app-my-trainers>
+  </div>
+  <div *ngIf="role === 'ROLE_TRAINER'">
+    <app-my-trainees></app-my-trainees>
   </div>
 </section>

@@ -3,6 +3,7 @@ import {DialogDeleteAccount, DialogUpdatePhoto, ModalBoxComponent} from "../moda
 import {MyProfileService} from "./my-profile.service";
 import {FullUserModel} from "./full-user.model";
 import {ToastrService} from "ngx-toastr";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-my-profile',
@@ -24,7 +25,7 @@ export class MyProfileComponent {
     specialization: null
   };
 
-  constructor(private modalBox: ModalBoxComponent, private profileService: MyProfileService, private toastr: ToastrService) {
+  constructor(private modalBox: ModalBoxComponent, private profileService: MyProfileService, private toastr: ToastrService, private router: Router) {
     this.profileService.getMe()
       .subscribe(response => {
         this.user.firstName = response.firstName;
@@ -48,6 +49,10 @@ export class MyProfileComponent {
     this.modalBox.openDialog(DialogUpdatePhoto, '0ms', '100ms');
   }
 
+  openChangePassword() {
+    this.router.navigate(["/change-password"]);
+  }
+
   updateProfile() {
     if (!this.isUserFieldsValid()) {
       return;
@@ -65,19 +70,19 @@ export class MyProfileComponent {
   }
 
   isUserFieldsValid(): boolean {
-    if (this.user.firstName && this.user.firstName.length < 3){
+    if (this.user.firstName && this.user.firstName.length < 3) {
       this.toastr.error("first name should be minimum length 3", "Error");
       return false;
     }
-    if (this.user.lastName && this.user.lastName.length < 3){
+    if (this.user.lastName && this.user.lastName.length < 3) {
       this.toastr.error("last name should be minimum length 3", "Error");
       return false;
     }
-    if (this.user.address && this.user.address.length < 3){
+    if (this.user.address && this.user.address.length < 3) {
       this.toastr.error("address should be minimum length 3", "Error");
       return false;
     }
-    if (this.user.specialization && this.user.specialization.length < 3){
+    if (this.user.specialization && this.user.specialization.length < 3) {
       this.toastr.error("specialization should be minimum length 3", "Error");
       return false;
     }

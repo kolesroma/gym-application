@@ -1,0 +1,23 @@
+<section>
+  <h2>Generate Visited Report</h2>
+  <button (click)="onGenerateVisitedReportClick()">Generate visited report</button>
+  <ag-grid-angular
+    style="width: 101%; max-width: 820px; height: 300px;"
+    class="ag-theme-alpine"
+    [rowData]="rowDataVisited"
+    [columnDefs]="columnDataVisited"
+    (gridReady)="onGridReadyVisited($event)">
+  </ag-grid-angular>
+</section>
+
+<section>
+  <h2>Generate Velocity Report</h2>
+  <button (click)="onGenerateVelocityReportClick()">Generate velocity report</button>
+  <ag-grid-angular
+    style="width: 101%; max-width: 820px; height: 300px;"
+    class="ag-theme-alpine"
+    [rowData]="rowDataVelocity"
+    [columnDefs]="columnDataVelocity"
+    (gridReady)="onGridReadyVelocity($event)">
+  </ag-grid-angular>
+</section>

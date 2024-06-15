@@ -63,6 +63,10 @@ import { DietComponent } from './diet/diet.component';
 import {DietService} from "./diet/diet.service";
 import { NotificationSettingsComponent } from './notification-settings/notification-settings.component';
 import {NotificationService} from "./notification-settings/notification.service";
+import { MyTraineesComponent } from './my-trainees/my-trainees.component';
+import { ReportsComponent } from './reports/reports.component';
+import {ReportService} from "./reports/reports.service";
+import {GridApi} from "ag-grid-community";
 
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
   return localStorageSync({ keys: ['isAuthenticated', 'auth'], rehydrate: true })(reducer);
@@ -97,7 +101,10 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
     TrainingAddTrainerComponent,
     MyTrainersComponent,
     DietComponent,
+    ReportsComponent,
     NotificationSettingsComponent,
+    MyTraineesComponent,
+    ReportsComponent,
   ],
   imports: [
     BrowserModule,
@@ -120,6 +127,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
       {path: 'registration-verification', component: RegistrationVerificationComponent, canActivate: [AuthGuardComponent]},
       {path: 'diet', component: DietComponent, canActivate: [AuthGuardComponent]},
       {path: 'notification-settings', component: NotificationSettingsComponent, canActivate: [AuthGuardComponent]},
+      {path: 'reports', component: ReportsComponent, canActivate: [AuthGuardComponent]},
       {path: '**', component: PageNotFoundComponent}
     ]),
     MatButtonModule,
@@ -159,7 +167,8 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
     DatePipe,
     TrainingService,
     DietService,
-    NotificationService
+    NotificationService,
+    ReportService
   ],
   exports: [
     ButtonComponent,

@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {DietService} from "./diet.service";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-diet',
@@ -15,9 +14,9 @@ export class DietComponent {
   columnDataStudent = [
     {field: 'massInGrams'},
     {field: 'desc'},
-    {field: 'proteins'},
-    {field: 'fats'},
-    {field: 'carbohydrates'},
+    {field: 'proteins', valueFormatter: this.numberFormatter},
+    {field: 'fats', valueFormatter: this.numberFormatter},
+    {field: 'carbohydrates', valueFormatter: this.numberFormatter},
   ];
 
   createDietDto: { numberOfMeals: number, kcal: number, proteinsCoefficient: number, fatsCoefficient: number, carbohydratesCoefficient: number } = {
@@ -29,6 +28,10 @@ export class DietComponent {
   }
 
   constructor(private dietService: DietService) {
+  }
+
+  numberFormatter(params: any) {
+    return params.value.toFixed(2);
   }
 
   onSubmit() {

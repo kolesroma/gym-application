@@ -8,6 +8,7 @@ import {BehaviorSubject, Observable} from "rxjs";
 export class TrainingService {
   private getTrainingsUrl = 'http://localhost:8080/trainings';
   private saveTrainingUrl = 'http://localhost:8080/trainings';
+  private toggleTrainingStatusUrl = 'http://localhost:8080/trainings/{trainingId}/toggle-visited';
 
   constructor(private http: HttpClient, private store: Store<{ auth: AuthState }>) {
     this.store.select("auth")
@@ -48,4 +49,15 @@ export class TrainingService {
     };
     return this.http.post(this.saveTrainingUrl, training, requestOptions);
   }
+
+  toggleTrainingStatus(trainingId: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.javaToken}`
+    });
+    const requestOptions = {
+      headers: headers
+    };
+    return this.http.post(this.toggleTrainingStatusUrl.replace("{trainingId}", trainingId), {}, requestOptions);
+  }
+
 }

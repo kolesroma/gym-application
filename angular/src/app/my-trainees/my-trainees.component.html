@@ -1,0 +1,11 @@
+<div class="trainee-list">
+  <h1 class="text-center">My Trainees (with visited status)</h1>
+  <app-table [rowData]="rowData"
+             [columnDefs]="columnData"
+  ></app-table>
+</div>
+
+<app-button (click)="routerToReportPage()"
+            text="Generate new report"
+            type="important"
+></app-button>

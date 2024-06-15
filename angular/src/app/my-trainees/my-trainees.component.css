@@ -1,0 +1,14 @@
+.trainee-list {
+  width: 880px;
+}
+
+.common-button-container {
+  width: 120px;
+  margin-top: 28px;
+}
+
+.report-section {
+  display: flex;
+  align-self: center;
+  align-items: center;
+}
